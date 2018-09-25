@@ -1,0 +1,1 @@
+output = 47.51905*lenth_of_url + 2.74419975*lenth_of_primary_domain + -4.461544*number_of_dots + 3.06683564*contain_IP + 32.16928*avg_word_lenth + 11.8436232*longest_word_length + 24.7378788*special_character_count + -1.20394266;
