@@ -70,8 +70,8 @@ def special_character_count(u):
 
 with open('rawdata.csv') as f:
 	with open('traindata.txt', 'w') as w:
-		w.writelines('lenth_of_url' + ',' + 'lenth_of_primary_domain' + ',' +
-			   'number_of_dots' + ',' + 'contain_IP' + ',' + 'avg_word_lenth' + ',' +
+		w.writelines('length_of_url' + ',' + 'length_of_primary_domain' + ',' +
+			   'number_of_dots' + ',' + 'contain_IP' + ',' + 'avg_word_length' + ',' +
 			   'longest_word_length' + ',' + 'special_character_count' + ',' + 'result' + '\n')
 		f_csv = csv.reader(f)
 		headers = next(f_csv)

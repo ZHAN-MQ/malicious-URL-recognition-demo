@@ -1,4 +1,4 @@
-lenth_of_url,lenth_of_primary_domain,number_of_dots,contain_IP,avg_word_lenth,longest_word_length,special_character_count,result
+length_of_url,length_of_primary_domain,number_of_dots,contain_IP,avg_word_length,longest_word_length,special_character_count,result
 22,21,2,0,4.75,13,0,0
 20,19,2,0,4.25,11,0,0
 113,16,3,0,18.0,88,11,1

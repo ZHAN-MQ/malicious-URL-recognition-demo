@@ -1,13 +1,23 @@
-# url-recognition-demo
+# malicious-URL-recognition-demo
 
-A demo of malicious URL recognition based on logistic regression
+#### A demo of malicious URL recognition based on logistic regression
 
-Feature Extraction.py: lenth_of_url, lenth_of_primary_domain, number_of_dots, contain_IP, avg_word_lenth, longest_word_length, special_character_count
+##### Feature Extraction.py: 
 
-ogistic Regression.py: implement logistic regression with python
+Extract features from the raw data. The features include: length of URL, length of primary domain, number of dots, contain IP, average word length, longest word length, the number of special character.
 
-Logistic Regression-statsmodels.py: Use statsmodels to implement logistic regression
+##### Logistic Regression.py: 
 
-40.model.cs: Result after adjusting parameters, based on Microsoft Azure Machine Learning Studio
+Implement logistic regression with python. Using the stochastic gradient  ascent method to make the data quickly converge to the actual values.
 
-25.model.cs: URL recognition result based on decision tree, based on Microsoft Azure Machine Learning Studio
+##### Logistic Regression-statsmodels.py: 
+
+Use statsmodels(https://www.statsmodels.org/) to implement logistic regression.
+
+##### 40.model.cs: 
+
+Results after using the logistic regression method and adjusting the parameters, based on Microsoft Azure Machine Learning Studio(https://studio.azureml.net/)
+
+##### 25.model.cs: 
+
+Results after using the decision tree, based on Microsoft Azure Machine Learning Studio
