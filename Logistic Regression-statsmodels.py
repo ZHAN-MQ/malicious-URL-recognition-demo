@@ -1,26 +1,33 @@
 import pandas as pd
 import numpy as np
 import statsmodels.api as sma
+import csv
 
-df = pd.read_csv('result.csv')
+df = pd.read_csv('url-train.csv')
+tf = pd.read_csv('url-test.csv')
 
-Dep = pd.DataFrame(df.result)
-print(Dep)
+Deptrain = pd.DataFrame(df.result)
+Indtrain = sma.add_constant(df[df.columns.difference(['result'])])
 
-Ind = sma.add_constant(df[df.columns.difference(['result'])])
-print(Ind)
-
-Indtrain = Ind.iloc[0:1000]
-Deptrain = Dep.iloc[0:1000]
-Indtest = Ind.tail(10)
-
-print(Indtrain)
-print(Deptrain)
-print(Indtest)
+Indtest = sma.add_constant(tf[tf.columns.difference(['result'])])
 
 Ir = sma.Logit(Deptrain, Indtrain)
-result = Ir.fit()
 
-predictedValue['predict'] = Ir.fit.predict(Indtest)
-compare=pd.DataFrame({'predictedValue':predictedValue,'actualValue':Dep.tail(10)})
-print(compare)
+predictedValue = Ir.fit().predict(Indtest)
+predictedValue = list(predictedValue)
+
+with open('url-test.csv', 'r') as csvfile:
+    reader = csv.DictReader(csvfile)
+    column = list([row['result'] for row in reader])
+    l = len(predictedValue)
+    sum = 0
+    i = 0
+    while i < l:
+        if predictedValue[i] < 0.5:
+            predictedValue[i] = 0
+        else:
+            predictedValue[i] = 1
+        if predictedValue[i] == int(column[i]):
+            sum += 1
+        i += 1
+    print(sum/i)

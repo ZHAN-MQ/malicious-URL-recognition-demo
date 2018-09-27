@@ -37,25 +37,26 @@ def Test():
             lineArr.append(float(currLine[i]))
         trainSet.append(lineArr)
         trainLabels.append(float(currLine[7]))
-    trainWeights = stocGradAscent(np.array(trainSet),trainLabels, 20)
-    errorCount = 0;numTestVec=0
+    trainWeights = stocGradAscent(np.array(trainSet),trainLabels, 9)
+    Count = 0
+    numTestVec=0
     for line in frTest.readlines():
         numTestVec += 1
         currLine = line.strip().split(',')
         lineArr = []
         for i in range(7):
             lineArr.append(float(currLine[i]))
-        if classifyVector(np.array(lineArr),trainWeights) != int(currLine[7]):
-            errorCount += 1
-    errorRate=(float(errorCount) / numTestVec)
-    print('the error rate of this test is : %f'%errorRate)
-    return errorRate
+        if classifyVector(np.array(lineArr),trainWeights) == int(currLine[7]):
+            Count += 1
+    correctRate=(float(Count) / numTestVec)
+    print('the correct rate of this test is : %f' %correctRate)
+    return correctRate
 
 def multiTest():
     numTests = 5
-    errorSum = 0
+    correctSum = 0
     for i in range(numTests):
-        errorSum += Test()
-    print('after %d iterations the average error rate is: %f'%(numTests,errorSum/float(numTests)))
+        correctSum += Test()
+    print('after %d iterations the average correct rate is: %f'%(numTests, correctSum/float(numTests)))
 
 multiTest()

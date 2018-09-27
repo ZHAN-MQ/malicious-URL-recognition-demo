@@ -68,8 +68,8 @@ def special_character_count(u):
 	return count
 
 
-with open('traindata-2.csv') as f:
-	with open('result.txt', 'w') as w:
+with open('rawdata.csv') as f:
+	with open('traindata.txt', 'w') as w:
 		w.writelines('lenth_of_url' + ',' + 'lenth_of_primary_domain' + ',' +
 			   'number_of_dots' + ',' + 'contain_IP' + ',' + 'avg_word_lenth' + ',' +
 			   'longest_word_length' + ',' + 'special_character_count' + ',' + 'result' + '\n')
